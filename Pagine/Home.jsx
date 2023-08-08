@@ -30,7 +30,7 @@ export default function Home() {
       queryKey: section,
       queryFn: async () => {
         const response = await axios.get(
-          `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("${section}")&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
+          `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("${section}")&sort=newest&api-key=CQ0Wb4S5hnBB6DIjuCEEXwDgWS7YZaO0`
         );
         return response.data.response.docs;
       },
