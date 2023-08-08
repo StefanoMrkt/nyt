@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search/:text" element={<SearchResult />} />
-        <Route path="/section/:section" element={<SingleSection/>} />
+        <Route path="/section/:section" element={<SingleSection />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </>
