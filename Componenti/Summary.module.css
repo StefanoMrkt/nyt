@@ -1,0 +1,40 @@
+.main {
+    width: 200px; 
+    height: auto;
+    margin-right: 15px;
+    padding: 10px;
+}
+
+h6 {
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.thunb {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.headline {
+    font-size: 14px;
+    text-align: left;
+}
+
+.article {
+    color:black;
+    text-decoration: none;
+}
+
+.article:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.line {
+    background-color: lightgray;
+    height: 1px;
+    width: 100%;
+    margin-top: -11px;
+}

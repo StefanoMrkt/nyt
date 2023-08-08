@@ -1,0 +1,17 @@
+.main {   
+    margin: auto;
+    font-size: 48px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    object-fit: contain;
+    height: 400px;
+    margin-top: 15px;
+}
+
+.error404 {
+    margin-bottom: -15px;
+    font-size: 26px;
+}

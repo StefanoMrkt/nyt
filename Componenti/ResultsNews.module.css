@@ -1,0 +1,44 @@
+.article {
+    display: flex
+}
+.mainStructure {
+    text-decoration: none; 
+}
+
+.mainStructure:hover {
+    text-decoration: none;
+}
+
+.dateArt {
+    margin-right: 11px;
+    text-align: left;
+    font-size: 12px;
+    width: 40px;
+    margin-top: 3px;
+    color: gray;
+}
+
+.headline, .abstract {
+    text-align: left;
+    margin-right: 15px;
+}
+
+
+.imageNews {
+    margin-bottom: 15px;
+    width: 60%;
+    float: right;
+}
+
+.section {
+    text-align: left;
+    margin-bottom: 1px;
+    color: gray;
+}
+
+.textArt {
+    display: flex;
+    width: 100%;
+}
+
+

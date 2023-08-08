@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Title";
+  src: url("../src/font/BLACEB.TTF") format("truetype");
+}
+
+.logo {
+  margin:  auto;
+  flex-basis: 50%;
+  margin-top: -20px;
+}
+
+.NY {
+  font-family: "Title";
+  font-size: 40px;
+}
+
+.link {
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: none;
+}
+
+.align, .but {
+  background-color: transparent;
+  border: none;
+}
+
+.align {
+  display: none;
+}
+
+.search {
+  width: 170px;
+  margin-left: 15px;
+  margin-bottom: -20px;
+}
+
+
+.hamburger {
+  fill:black;
+}
+
+.iconSearch {
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+}
+
+.iconLeft {
+  display: flex;
+
+}
+
+.icon {
+  display: flex;
+  margin-bottom: 15px; 
+  justify-content: space-between;
+  height: 25px;
+  margin-bottom: 30px;
+}
+
+.secondLine {
+  display: flex;
+}
+
+.date {
+  text-align: left;
+  font-size: 15px;
+flex-basis: 100px;
+}
+
+.empty {
+  flex-basis: 100px;
+}
+
+.line {
+  margin-top: 10px;
+  height: 1px;
+  background-color: rgb(211, 211, 211);
+}
+
+.divNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleNav {
+  text-align: left;
+  padding: 3px;
+  color: black;
+}
+
+.bNav {
+  border: none;
+  text-align: left;
+  padding: 3px;
+}
+.bNav:hover {
+  color: white;
+  background-color: gray;
+}
+
+.navbar {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .iconSearch, .iconRight {
+    display: none;
+  }
+
+  .NY {
+    font-size: 25px;
+  }
+
+  .secondLine {
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+  }
+
+  .date {
+    order:2;
+    margin-top: -10px;
+    flex-basis: 0px;
+  }
+
+  .logo {
+    order: 1;
+    margin-top: 0px;
+  }
+
+   .empty {
+    display: none;
+  }
+
+  .navbar{
+    display: block;
+  }
+
+ 
+}

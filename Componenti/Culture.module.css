@@ -1,0 +1,30 @@
+.component {
+    display: flex;
+    margin-bottom: 35px;
+}
+
+.headline {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.imageNews {
+    object-fit: contain;
+    width: 100%;
+}
+
+.web {
+    text-decoration: none;
+}
+
+.web:hover {
+    text-decoration: none;
+}
+
+.vertDiv {
+    background-color: lightgray;
+    width: 1px;
+    margin-bottom: 30px;
+    margin-left: 18px;
+}

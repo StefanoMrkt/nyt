@@ -1,0 +1,104 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Tinos';
+}
+
+.newsSummary {
+text-align: left;
+margin-top: 15px;
+font-weight: 700;
+}
+
+.line {
+  height: 1px;
+  background-color: rgb(29, 29, 29);
+  margin: 2px;
+}
+
+.newsMain {
+  display: flex
+}
+
+.sectionLeft {
+  width: 70%;
+}
+
+.lineVert {
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 1px;
+  background-color: lightgray;
+}
+
+.opinion {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.footer {
+  color: gray;
+  font-size: 12px;
+}
+
+.h1Section {
+  text-align: left;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.OpinionSection {
+  margin-left: 15px;
+}
+
+.nameSection {
+  text-align: left;
+  font-size: 22px;
+}
+
+.buttonArt {
+  border: none;
+  background-color: transparent;
+}
+
+.resultsFor {
+  font-size: 16px;
+}
+
+.textResult {
+  text-align: left;
+  font-size: 21px;
+}
+
+.lineDiv {
+  height: 1px;
+  width: 100%;
+  background-color: black ;
+  margin-bottom: 15px;
+}
+
+
+@media (max-width: 1056px) {
+
+  .sectionLeft {
+    width: 100%; 
+  }
+
+  .lineVert {
+    display: none;
+  }
+
+  .newsMain {
+    display: block;
+  }
+
+  .opinion {
+    margin-left: 0px
+  }
+
+  .OpinionSection {
+  margin-left: 0px;
+  }
+
+}
