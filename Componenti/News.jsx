@@ -27,6 +27,7 @@ export default function News(props) {
                   <p className={styles.abstract}>{art?.abstract}</p>
                 </div>
                 {props.news.secondNews && (
+                  //!Non è cliccabile il secondo articolo
                   <div className={styles.secondArticle}>
                     <h3 className={styles.headline}>
                       {article[1]?.headline?.main}
