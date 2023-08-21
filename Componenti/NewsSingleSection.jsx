@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import styles from "./NewsSingleSection.module.css";
+
 export default function NewsSingleSection(props) {
   const article = props.news?.call;
-  console.log(article);
+
   const imageBlog = article.multimedia.find(
     (image) => image.subtype === "xlarge"
   );
@@ -43,6 +44,6 @@ export default function NewsSingleSection(props) {
 
 NewsSingleSection.propTypes = {
   news: PropTypes.shape({
-    call: PropTypes.array,
+    call: PropTypes.object,
   }),
 };

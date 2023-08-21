@@ -1,7 +1,9 @@
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { store } from "../store";
 
 import Header from "../Componenti/Header";
+import Sections from "../Componenti/Sections";
 import ResultsNews from "../Componenti/ResultsNews";
 import { useEffect, useState } from "react";
 
@@ -9,17 +11,13 @@ export default function SearchResult() {
   const location = useLocation();
   const [news, setNews] = useState([]);
 
-  const apiKey = [
-    "CQ0Wb4S5hnBB6DIjuCEEXwDgWS7YZaO0",
-    "9ppYDcVLlkQzwguaO3DtkJmBwfmREee0",
-    "K9JYkpYZYIJm9Z3sqx2ZnGYc4XKcLBVz",
-  ];
+  const apiKey = "9ppYDcVLlkQzwguaO3DtkJmBwfmREee0";
 
   //TODO Inserire caricamento
   useEffect(() => {
     axios
       .get(
-        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${location.state.text}&api-key=${apiKey[1]}`
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${location.state.text}&api-key=${apiKey}`
       )
       .then((data) => data.data)
       .then((res) => {
@@ -29,7 +27,8 @@ export default function SearchResult() {
 
   return (
     <div>
-      <Header />
+      <Header light={store} />
+      <Sections />
       <div className="textResult">
         <div className="resultsFor">Results for:</div>
         <div>
@@ -37,7 +36,7 @@ export default function SearchResult() {
         </div>
         <div className="lineDiv"></div>
       </div>
-      {news ? <ResultsNews call={news} /> : <div>Nessun risultato</div>}
+      {news ? <ResultsNews call={news} /> : <div>No reasults</div>}
 
       <footer>
         <div className="lineDiv"></div>

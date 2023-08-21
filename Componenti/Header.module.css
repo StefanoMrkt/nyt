@@ -67,7 +67,7 @@
 .date {
   text-align: left;
   font-size: 15px;
-flex-basis: 100px;
+  flex-basis: 100px;
 }
 
 .empty {

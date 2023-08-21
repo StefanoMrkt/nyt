@@ -1,14 +1,13 @@
 import styles from "./Sections.module.css";
 import { useNavigate } from "react-router-dom";
-import sectionsData from "../sections";
+import { useQueryContext } from "../QueryContext";
 
-export default function Sections({ articles }) {
-  const sections = sectionsData;
+export default function Sections() {
   const navigate = useNavigate();
 
+  const { queries } = useQueryContext();
 
-  const TotalSection = articles.map(({ data }, index) => {
-    const section = sections[index].section;
+  const TotalSection = Object.keys(queries).map((section, index) => {
     return (
       <li key={index} className={styles.sectionArt}>
         <button
@@ -16,7 +15,7 @@ export default function Sections({ articles }) {
           onClick={() =>
             navigate(`/section/${section}`, {
               state: {
-                data: data && data,
+                data: queries[section],
               },
             })
           }
@@ -29,7 +28,7 @@ export default function Sections({ articles }) {
 
   return (
     <div>
-      {articles && <ul className={styles.ulTotal}>{TotalSection}</ul>}
+      <ul className={styles.ulTotal}>{TotalSection}</ul>
       <div className={`${styles.line} lineDiv`}></div>
       <div className={`${styles.line} lineDiv`}></div>
     </div>

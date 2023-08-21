@@ -1,15 +1,20 @@
 import Header from "../Componenti/Header";
+import Sections from "../Componenti/Sections";
 import { useLocation } from "react-router-dom";
+import { store } from "../store";
+import { useQueryContext } from "../QueryContext";
 import NewsSingleSection from "../Componenti/NewsSingleSection";
 
 export default function SingleSection() {
   const location = useLocation();
   const data = location.state?.data;
 
-  console.log(location.state);
+  const { queries } = useQueryContext();
+
   return (
     <div>
-      <Header />
+      <Header light={store} articles={queries} />
+      <Sections />
 
       <h2 className="nameSection">{data[0].section_name}</h2>
       <div className="line"></div>

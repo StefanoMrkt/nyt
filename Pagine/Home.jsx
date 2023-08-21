@@ -10,6 +10,7 @@ import axios from "axios";
 import { store } from "../store";
 import { useQueries } from "react-query";
 
+import { useQueryContext } from "../QueryContext";
 import { Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -23,7 +24,9 @@ export default function Home() {
     "Culture",
   ];
 
-  const secondNews = [true, false, false, false];
+  const secondNews = [true, false, true, false];
+
+  const { setQueries } = useQueryContext();
 
   const queries = useQueries(
     sections.map((section) => ({
@@ -32,7 +35,14 @@ export default function Home() {
         const response = await axios.get(
           `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("${section}")&sort=newest&api-key=CQ0Wb4S5hnBB6DIjuCEEXwDgWS7YZaO0`
         );
-        return response.data.response.docs;
+        const data = response.data.response.docs;
+
+        setQueries((prevQueries) => ({
+          ...prevQueries,
+          [section]: data,
+        }));
+
+        return data;
       },
     }))
   );
@@ -44,6 +54,12 @@ export default function Home() {
       <div className="newsMain">
         <section className="sectionLeft">
           {queries.slice(0, 4).map((section, index) => {
+            const sectionData = section.data;
+
+            if (!sectionData) {
+              return null;
+            }
+
             return (
               <News
                 key={index}
@@ -106,11 +122,16 @@ export default function Home() {
       <h5 className="newsSummary">NEWS</h5>
       <section>
         <Row>
-          {queries.map((section, index) => (
-            <Col key={index} xs={6} sm={4} md={3} lg={3} xl={3}>
-              <Summary call={section.data} />
-            </Col>
-          ))}
+          {queries.map((section, index) => {
+            const sectionData = section.data;
+            if (!sectionData) return null;
+
+            return (
+              <Col key={index} xs={6} sm={4} md={3} lg={3} xl={3}>
+                <Summary call={section.data} />
+              </Col>
+            );
+          })}
         </Row>
       </section>
 

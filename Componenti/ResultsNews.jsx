@@ -12,18 +12,20 @@ export default function ResultsNews(props) {
 
   console.log(props.call);
 
-  article.sort((a, b) => {
-    const dateA = new Date(a.pub_date);
-    const dateB = new Date(b.pub_date);
+  if (article != null) {
+    article.sort((a, b) => {
+      const dateA = new Date(a.pub_date);
+      const dateB = new Date(b.pub_date);
 
-    return dateB - dateA;
-  });
+      return dateB - dateA;
+    });
+  }
 
   const mappedArticles = Array.isArray(article)
     ? article.map((art) => {
         if (art.multimedia && art.multimedia.length > 0) {
           imageBlog = art.multimedia.find(
-            (image) => image.subtype === "xlarge"
+            (image) => image.subtype === "mediumThreeByTwo210"
           );
         }
 
@@ -42,7 +44,7 @@ export default function ResultsNews(props) {
                   </div>
 
                   <div className={styles.divNews}>
-                    <p className={styles.section}>{art?.subsection_name}</p>
+                    <p className={styles.section}>{art?.section_name}</p>
                     <h3 className={styles.headline}>{art?.headline?.main}</h3>
                     <p className={styles.abstract}>{art?.abstract}</p>
                   </div>

@@ -45,6 +45,7 @@ margin: 0px 6px 6px 0px;
 height: 330px;
 width: 600px;
 object-fit: contain;
+object-position: center;
 }
 
 @media (max-width: 780px) {
@@ -58,9 +59,8 @@ object-fit: contain;
     .imageNews {
         width: 100%;
         height: auto;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+        object-fit: contain;
+        object-position: center;
     }
     .headline {
         font-size: 25px;

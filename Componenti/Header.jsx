@@ -15,13 +15,13 @@ import { FaSearch } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
 import sectionsData from "../sections";
+import { useQueryContext } from "../QueryContext";
 
 function Header(props) {
   const light = props.light;
   const sun = props.sun;
 
   const sections = sectionsData;
-  const sectionNav = props.articles;
 
   function onChangeTheme() {
     props.setLight();
@@ -31,6 +31,8 @@ function Header(props) {
   const [text, setText] = useState("");
 
   const navigate = useNavigate();
+
+  const { queries } = useQueryContext();
 
   const NewDate = new Date();
   const Giorno = NewDate.getDate();
@@ -51,8 +53,7 @@ function Header(props) {
   }
 
   //Sezioni Navbar
-  const TotalSection = sectionNav?.map(({ data }, index) => {
-    const section = sections[index].section;
+  const TotalSection = Object.keys(queries).map((section, index) => {
     return (
       <button
         key={index}
@@ -60,7 +61,7 @@ function Header(props) {
         onClick={() =>
           navigate(`/section/${section}`, {
             state: {
-              data: data && data,
+              data: queries[section],
             },
           })
         }
@@ -87,7 +88,6 @@ function Header(props) {
                     id="basic-navbar-nav"
                     style={{
                       backgroundColor: `lightgray`,
-                      borderRadius: `12px`,
                       marginTop: `8px`,
                     }}
                   >
