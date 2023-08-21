@@ -2,10 +2,10 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
 
-import Home from "../Pagine/Home";
-import Error from "../Pagine/Error";
-import SearchResult from "../Pagine/SearchResult";
-import SingleSection from "../Pagine/SingleSection"
+import Home from "./Pages/Home";
+import Error from "./Pages/Error";
+import SearchResult from "./Pages/SearchResult";
+import SingleSection from "./Pages/SingleSection";
 
 function App() {
   return (

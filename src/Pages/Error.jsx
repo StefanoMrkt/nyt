@@ -1,5 +1,5 @@
-import Header from "../Componenti/Header";
-import ErrorComponent from "../Componenti/Error.jsx";
+import Header from "../Components/Header";
+import ErrorComponent from "../Components/Error.jsx";
 
 export default function Error() {
   return (

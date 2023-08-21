@@ -2,9 +2,9 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { store } from "../store";
 
-import Header from "../Componenti/Header";
-import Sections from "../Componenti/Sections";
-import ResultsNews from "../Componenti/ResultsNews";
+import Header from "../Components/Header";
+import Sections from "../Components/Sections";
+import ResultsNews from "../Components/ResultsNews";
 import { useEffect, useState } from "react";
 
 export default function SearchResult() {

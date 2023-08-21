@@ -1,9 +1,10 @@
-import Header from "../Componenti/Header";
-import Sections from "../Componenti/Sections";
+import Header from "../Components/Header";
+import Sections from "../Components/Sections";
+import NewsSingleSection from "../Components/NewsSingleSection";
+
 import { useLocation } from "react-router-dom";
 import { store } from "../store";
 import { useQueryContext } from "../QueryContext";
-import NewsSingleSection from "../Componenti/NewsSingleSection";
 
 export default function SingleSection() {
   const location = useLocation();
@@ -37,4 +38,3 @@ export default function SingleSection() {
     </div>
   );
 }
-

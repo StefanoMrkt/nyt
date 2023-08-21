@@ -1,12 +1,17 @@
 import style from "./Forecast.module.css";
 import { Row, Col, Container } from "react-bootstrap";
 
+import Forecast1 from "../images/Forecast.png";
+import Forecast2 from "../images/Forecast 2.png";
+import Forecast3 from "../images/Forecast 3.png";
+import Forecast4 from "../images/Forecast 4.png";
+
 export default function Forecast() {
   return (
     <div className={style.main}>
       <div>
         <h5 className={style.tracking}>
-          We’re tracking excessive heat forecasts
+          We are tracking excessive heat forecasts
         </h5>
       </div>
       <div>
@@ -39,37 +44,25 @@ export default function Forecast() {
                   <Row>
                     <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                       <div className={style.singleDay}>
-                        <img
-                          className={style.imageForecast}
-                          src="../images/Forecast.png"
-                        />
+                        <img className={style.imageForecast} src={Forecast1} />
                         <p className={style.nameDay}>Tuesday</p>
                       </div>
                     </Col>
                     <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                       <div className={style.singleDay}>
-                        <img
-                          className={style.imageForecast}
-                          src="../images/Forecast 2.png"
-                        />
+                        <img className={style.imageForecast} src={Forecast2} />
                         <p className={style.nameDay}>Wednesday</p>
                       </div>
                     </Col>
                     <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                       <div className={style.singleDay}>
-                        <img
-                          className={style.imageForecast}
-                          src="../images/Forecast 3.png"
-                        />
+                        <img className={style.imageForecast} src={Forecast3} />
                         <p className={style.nameDay}>Thursday</p>
                       </div>
                     </Col>
                     <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                       <div className={style.singleDay}>
-                        <img
-                          className={style.imageForecast}
-                          src="../images/Forecast 4.png"
-                        />
+                        <img className={style.imageForecast} src={Forecast4} />
                         <p className={style.nameDay}>Friday</p>
                       </div>
                     </Col>

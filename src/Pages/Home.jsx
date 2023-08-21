@@ -1,10 +1,10 @@
-import Header from "../Componenti/Header";
-import Sections from "../Componenti/Sections";
-import News from "../Componenti/News";
-import Summary from "../Componenti/Summary";
-import Forecast from "../Componenti/Forecast";
-import Culture from "../Componenti/Culture";
-import Opinion from "../Componenti/Opinion";
+import Header from "../Components/Header";
+import Sections from "../Components/Sections";
+import News from "../Components/News";
+import Summary from "../Components/Summary";
+import Forecast from "../Components/Forecast";
+import Culture from "../Components/Culture";
+import Opinion from "../Components/Opinion";
 
 import axios from "axios";
 import { store } from "../store";

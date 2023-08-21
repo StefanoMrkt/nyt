@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
-import { store } from "../store.js";
+import { store } from "./store.js";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { QueryProvider } from "../QueryContext.jsx";
+import { QueryProvider } from "./QueryContext.jsx";
 
 import "./index.css";
-import ThemeContainer from "../Componenti/ThemeContainer.jsx";
+import ThemeContainer from "./Components/ThemeContainer.jsx";
 
 const queryClient = new QueryClient();
 
