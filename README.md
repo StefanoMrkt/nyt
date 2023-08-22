@@ -1,8 +1,10 @@
-# React + Vite
+The Unofficial site of The New York Times.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I used the API to view the latest news of New York Times.
+I added the possibility to change theme  for a better readability
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app created with:
+- HTML
+- CSS
+- Javascript
+- REACT
