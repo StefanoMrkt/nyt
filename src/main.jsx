@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { QueryProvider } from "./QueryContext.jsx";
 
 import "./index.css";
-import ThemeContainer from "./Components/ThemeContainer.jsx";
+import ThemeContainer from "./ThemeContainer.jsx";
 
 const queryClient = new QueryClient();
 

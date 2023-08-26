@@ -1,21 +1,38 @@
 import styles from "./ResultsNews.module.css";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
-export default function ResultsNews(props) {
-  const [article, setArticle] = useState([]);
-  let imageBlog;
+interface ResultsNewsProps {
+  call: {
+    _id: string;
+    web_url: string;
+    multimedia: {
+      subtype: string;
+      url: string;
+    }[];
+    section_name: string;
+    headline: {
+      main: string;
+    };
+    abstract: string;
+    pub_date: string;
+  }[];
+}
+
+export default function ResultsNews({ call }: ResultsNewsProps) {
+  const [article, setArticle] = useState<any>([]);
+  let imageBlog: any;
 
   useEffect(() => {
-    setArticle(props.call[0]);
-  }, [props.call]);
+    setArticle(call[0]);
+  }, [call]);
 
-  console.log(props.call);
+  console.log(call);
 
-  if (article != null) {
+  if (call != null) {
     article.sort((a, b) => {
-      const dateA = new Date(a.pub_date);
-      const dateB = new Date(b.pub_date);
+      const dateA: number = new Date(a?.pub_date).getTime();
+      const dateB: number = new Date(b?.pub_date).getTime();
 
       return dateB - dateA;
     });
@@ -59,7 +76,7 @@ export default function ResultsNews(props) {
                           ? "https://static01.nyt.com/" + imageBlog.url
                           : art.multimedia[0]
                           ? "https://static01.nyt.com/" + art.multimedia[0].url
-                          : null
+                          : ""
                       }
                       style={{
                         display:
@@ -79,7 +96,3 @@ export default function ResultsNews(props) {
 
   return <div>{mappedArticles}</div>;
 }
-
-ResultsNews.propTypes = {
-  call: PropTypes.array,
-};

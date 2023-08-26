@@ -1,6 +1,6 @@
-import Header from "../Components/Header";
-import Sections from "../Components/Sections";
-import NewsSingleSection from "../Components/NewsSingleSection";
+import Header from "../Components/Header/Header";
+import Sections from "../Components/Sections/Sections";
+import NewsSingleSection from "../Components/NewsSingleSection/NewsSingleSection";
 
 import { useLocation } from "react-router-dom";
 import { store } from "../store";

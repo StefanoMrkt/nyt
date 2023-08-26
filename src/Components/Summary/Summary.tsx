@@ -1,15 +1,32 @@
 import styles from "./Summary.module.css";
-import PropTypes from "prop-types";
+import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Summary(props) {
-  const [article, setArticle] = useState([]);
+interface ResultsNewsProps {
+  call: {
+    _id: string;
+    web_url: string;
+    multimedia: {
+      subtype: string;
+      url: string;
+    }[];
+    section_name: string;
+    headline: {
+      main: string;
+    };
+    abstract: string;
+    pub_date: string;
+  };
+}
+
+export default function Summary({ call }: ResultsNewsProps) {
+  const [article, setArticle] = useState<any>([]);
 
   useEffect(() => {
-    setArticle(props.call);
-  }, [props.call]);
+    setArticle(call);
+  }, [call]);
 
-  let imageBlog = [];
+  let imageBlog: any = [];
 
   if (Array.isArray(article)) {
     imageBlog = article.map((art) => {
@@ -49,7 +66,3 @@ export default function Summary(props) {
     </div>
   );
 }
-
-Summary.propTypes = {
-  call: PropTypes.array,
-};

@@ -1,8 +1,10 @@
+import React from "react";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { setLight } from "../lightSlice";
+import { setLight } from "../../lightSlice";
 import styles from "./Header.module.css";
 
 import Form from "react-bootstrap/Form";
@@ -14,8 +16,8 @@ import { FaAlignJustify } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
-import sectionsData from "../sections";
-import { useQueryContext } from "../QueryContext";
+import sectionsData from "../../sections";
+import { useQueryContext } from "../../QueryContext";
 
 function Header(props) {
   const light = props.light;

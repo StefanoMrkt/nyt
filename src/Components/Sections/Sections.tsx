@@ -1,6 +1,7 @@
 import styles from "./Sections.module.css";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useQueryContext } from "../QueryContext";
+import { useQueryContext } from "../../QueryContext";
 
 export default function Sections() {
   const navigate = useNavigate();

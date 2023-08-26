@@ -1,14 +1,31 @@
-import PropTypes from "prop-types";
-
+import React from "react";
 import styles from "./News.module.css";
 import { useEffect, useState } from "react";
 
-export default function News(props) {
-  const [article, setArticle] = useState([]);
+interface NewsProps {
+  news: {
+    secondNews: boolean;
+    call: {
+      _id: string;
+      web_url: string;
+      multimedia: {
+        subtype: string;
+        url: string;
+      }[];
+      headline: {
+        main: string;
+      };
+      abstract: string;
+    }[];
+  };
+}
+
+export default function News({ news }: NewsProps) {
+  const [article, setArticle] = useState<any>([]);
 
   useEffect(() => {
-    setArticle(props.news.call);
-  }, [props.news.call]);
+    setArticle(news.call);
+  }, [news.call]);
 
   console.log(article);
 
@@ -36,7 +53,7 @@ export default function News(props) {
                     className={styles.mainStructure}
                     href={article[1]?.web_url}
                   >
-                    {props.news.secondNews && (
+                    {news.secondNews && (
                       <div className={styles.secondArticle}>
                         <h3 className={styles.headline}>
                           {article[1]?.headline?.main}
@@ -57,7 +74,7 @@ export default function News(props) {
                         ? "https://static01.nyt.com/" + imageBlog.url
                         : art.multimedia[0]
                         ? "https://static01.nyt.com/" + art.multimedia[0].url
-                        : null
+                        : ""
                     }
                     style={{
                       display:
@@ -76,10 +93,3 @@ export default function News(props) {
 
   return <div>{mappedArticles[0]}</div>;
 }
-
-News.propTypes = {
-  news: PropTypes.shape({
-    secondNews: PropTypes.bool,
-    call: PropTypes.array,
-  }),
-};

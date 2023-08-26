@@ -1,20 +1,23 @@
-import Header from "../Components/Header";
-import Sections from "../Components/Sections";
-import News from "../Components/News";
-import Summary from "../Components/Summary";
-import Forecast from "../Components/Forecast";
-import Culture from "../Components/Culture";
-import Opinion from "../Components/Opinion";
+import Header from "../Components/Header/Header";
+import Sections from "../Components/Sections/Sections";
+import News from "../Components/News/News";
+import Summary from "../Components/Summary/Summary";
+import Forecast from "../Components/Forecast/Forecast";
+import Culture from "../Components/Culture/Culture";
+import Opinion from "../Components/Opinion/Opinion";
 
 import axios from "axios";
 import { store } from "../store";
 import { useQueries } from "react-query";
 
 import { useQueryContext } from "../QueryContext";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, ProgressBar } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 
 export default function Home() {
+  const [numbProgress, setNumbProgress] = useState(0);
+
   const sections = [
     "World",
     "Business",
@@ -28,12 +31,26 @@ export default function Home() {
 
   const { setQueries } = useQueryContext();
 
+  let totalLoaded = 0;
+  let totalSize = 0;
   const queries = useQueries(
     sections.map((section) => ({
       queryKey: section,
       queryFn: async () => {
         const response = await axios.get(
-          `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("${section}")&sort=newest&api-key=CQ0Wb4S5hnBB6DIjuCEEXwDgWS7YZaO0`
+          `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("${section}")&sort=newest&api-key=${
+            import.meta.env.VITE_REACT_APP_API_KEY
+          }`,
+          {
+            onDownloadProgress: (progress) => {
+              totalLoaded += progress.loaded;
+              totalSize += progress.total;
+              let percentCompleted = Math.round(
+                (totalLoaded * 100) / totalSize
+              );
+              setNumbProgress(percentCompleted);
+            },
+          }
         );
         const data = response.data.response.docs;
 
@@ -51,6 +68,11 @@ export default function Home() {
     <>
       <Header light={store} articles={queries} />
       <Sections articles={queries} />
+      <ProgressBar
+        animated
+        now={numbProgress}
+        style={numbProgress === 100 ? { display: "none" } : {}}
+      />
       <div className="newsMain">
         <section className="sectionLeft">
           {queries.slice(0, 4).map((section, index) => {
@@ -113,12 +135,10 @@ export default function Home() {
           </div>
         </section>
       </div>
-
       <div>
         <div className="lineDiv"></div>
         <div className="lineDiv"></div>
       </div>
-
       <h5 className="newsSummary">NEWS</h5>
       <section>
         <Row>
@@ -134,7 +154,6 @@ export default function Home() {
           })}
         </Row>
       </section>
-
       <footer>
         <div className="lineDiv"></div>
         <p className="footer">2023 The New York Times Company</p>

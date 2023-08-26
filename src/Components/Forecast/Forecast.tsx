@@ -1,10 +1,12 @@
+import React from "react";
+
 import style from "./Forecast.module.css";
 import { Row, Col, Container } from "react-bootstrap";
 
-import Forecast1 from "../images/Forecast.png";
-import Forecast2 from "../images/Forecast 2.png";
-import Forecast3 from "../images/Forecast 3.png";
-import Forecast4 from "../images/Forecast 4.png";
+import Forecast1 from "../../images/Forecast.png";
+import Forecast2 from "../../images/Forecast 2.png";
+import Forecast3 from "../../images/Forecast 3.png";
+import Forecast4 from "../../images/Forecast 4.png";
 
 export default function Forecast() {
   return (
